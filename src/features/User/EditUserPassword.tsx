@@ -9,11 +9,11 @@ import { faKey } from '@fortawesome/free-solid-svg-icons';
 const EditUserPassword = () => {
     const { userPasswordToEdit, setuserPasswordToEdit } = useContext(UserContext);
 
-    const handleChangePassword = async (formData: { motDePasse: string }) => {
+    const handleChangePassword = async (formData: { password: string }) => {
         if (!userPasswordToEdit) { return false; }
 
         try {
-            return await updateUser(userPasswordToEdit.id, { motDePasse: formData.motDePasse } as any);
+            return await updateUser(userPasswordToEdit.id, { password: formData.password } as any);
         } catch (error) {
             console.error("Erreur lors de la modification du mot de passe:", error);
             return false;
@@ -36,9 +36,9 @@ const EditUserPassword = () => {
                 <Typography level='h4'>Modifier le mot de passe de {userPasswordToEdit?.nomComplet}</Typography>
                 <Divider />
 
-                <GenericForm<{ motDePasse: string }>
+                <GenericForm<{ password: string }>
                     fields={[{
-                        name: 'motDePasse',
+                        name: 'password',
                         label: 'Nouveau mot de passe',
                         type: 'password',
                         required: true,
@@ -50,7 +50,7 @@ const EditUserPassword = () => {
                     treatmentFonction={handleChangePassword}
                     submitButtonText="Changer le mot de passe"
                     cancelButtonText="Annuler"
-                    initialData={{ motDePasse: '' }}
+                    initialData={{ password: '' }}
                     onCancel={() => setuserPasswordToEdit(undefined)}
                 />
             </ModalDialog>

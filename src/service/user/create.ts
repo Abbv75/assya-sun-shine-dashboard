@@ -4,7 +4,7 @@ import { USER_T } from "../../types";
 export const create = async (user: {
     nom: string,
     login: string,
-    motDePasse: string,
+    password: string,
     id_role: string,
     idCOD?: string,
     telephone: 'string',

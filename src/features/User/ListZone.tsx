@@ -35,9 +35,8 @@ const ListZone = () => {
 
     return (
         <CustomTable
-            theadCells={["ID COD", "Nom", "Contact", "Action",]}
+            theadCells={["Nom", "Contact", "Action",]}
             data={userList.map((value, index) => ([
-                value.idCOD,
                 value.nomComplet,
                 (
                     <ButtonGroup size='sm' key={index} >

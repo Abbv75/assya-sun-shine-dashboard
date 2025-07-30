@@ -126,7 +126,7 @@ const EditUserForm = () => {
                                 <Input
                                     placeholder="Ex: Younouss Bore"
                                     type="password"
-                                    name='motDePasse'
+                                    name='password'
                                 />
                             </FormControl>
                         </Grid>
@@ -149,19 +149,6 @@ const EditUserForm = () => {
                             </FormControl>
                         </Grid>
                     )}
-
-                    <Collapse sx={{ width: '100%' }} in={selectedRole === 'R01'} timeout={500} >
-                        <Grid xs={12} sm={6} >
-                            <FormControl required={selectedRole === 'R01'}>
-                                <FormLabel>ID Call Of Duty</FormLabel>
-                                <Input
-                                    placeholder="Ex: 121154512"
-                                    name='idCOD'
-                                    defaultValue={userToEdit?.idCOD || undefined}
-                                />
-                            </FormControl>
-                        </Grid>
-                    </Collapse>
 
                     <Divider sx={{ width: '100%' }} />
 

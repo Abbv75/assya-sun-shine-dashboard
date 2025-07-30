@@ -4,7 +4,7 @@ import { USER_T } from "../../types";
 export const update = async (id: string, user: {
     nom?: string,
     login?: string,
-    motDePasse?: string,
+    password?: string,
     id_role?: string,
     idCOD?: string,
     telephone: 'string',
