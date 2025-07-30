@@ -13,7 +13,7 @@ export const update = async (id: string, user: {
     adresse?: 'string',
 }) => {
     try {
-        const { data } = await axiosInstance.put(`/user/${id}`, user);
+        const { data } = await axiosInstance.put(`/users/${id}`, user);
 
         return data.data as USER_T;
     } catch (error: any) {
