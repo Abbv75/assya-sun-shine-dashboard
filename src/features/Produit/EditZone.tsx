@@ -10,6 +10,73 @@ const EditZone = () => {
 
     const [isOpen, setisOpen] = useState(false);
 
+    const fields = [
+        {
+            name: 'nom',
+            label: 'Nom',
+            type: 'text',
+            required: true,
+            placeholder: 'Ex: Robe de princesse',
+            xs: 12,
+            sm: 12,
+        },
+        {
+            name: 'prixAchat',
+            label: "Prix d'achat",
+            type: 'number',
+            required: true,
+            placeholder: 'Ex: 7500',
+            xs: 12,
+            sm: 6,
+        },
+        {
+            name: 'prixVenteDetails',
+            label: "Prix detaillant",
+            type: 'number',
+            required: true,
+            placeholder: 'Ex: 10000',
+            xs: 12,
+            sm: 6,
+        },
+        {
+            name: 'prixVenteEngros',
+            label: "Prix d'engros",
+            type: 'number',
+            required: true,
+            placeholder: 'Ex: 9000',
+            xs: 12,
+            sm: 6,
+        },
+        {
+            name: 'quantite',
+            label: "Quantité disponible",
+            type: 'number',
+            required: true,
+            placeholder: 'Ex: 50',
+            xs: 12,
+            sm: 6,
+        },
+        {
+            name: 'id_categorie',
+            label: "Catégorie du produit",
+            type: 'select',
+            required: true,
+            options: categorieList.map(value => ({
+                label: value.nom,
+                value: value.id
+            })),
+            xs: 12,
+        },
+        produitToEdit ?? {
+            name: 'images[]',
+            label: "Images du produit",
+            type: 'file',
+            required: true,
+            multiple: true,
+            xs: 12,
+        },
+    ];
+
     const onSubmit = async (data: any) => {
         try {
             return await (
@@ -70,72 +137,7 @@ const EditZone = () => {
                 <Divider />
 
                 <GenericForm<PRODUIT_T>
-                    fields={[
-                        {
-                            name: 'nom',
-                            label: 'Nom',
-                            type: 'text',
-                            required: true,
-                            placeholder: 'Ex: Robe de princesse',
-                            xs: 12,
-                            sm: 12,
-                        },
-                        {
-                            name: 'prixAchat',
-                            label: "Prix d'achat",
-                            type: 'number',
-                            required: true,
-                            placeholder: 'Ex: 7500',
-                            xs: 12,
-                            sm: 6,
-                        },
-                        {
-                            name: 'prixVenteDetails',
-                            label: "Prix detaillant",
-                            type: 'number',
-                            required: true,
-                            placeholder: 'Ex: 10000',
-                            xs: 12,
-                            sm: 6,
-                        },
-                        {
-                            name: 'prixVenteEngros',
-                            label: "Prix d'engros",
-                            type: 'number',
-                            required: true,
-                            placeholder: 'Ex: 9000',
-                            xs: 12,
-                            sm: 6,
-                        },
-                        {
-                            name: 'quantite',
-                            label: "Quantité disponible",
-                            type: 'number',
-                            required: true,
-                            placeholder: 'Ex: 50',
-                            xs: 12,
-                            sm: 6,
-                        },
-                        {
-                            name: 'id_categorie',
-                            label: "Catégorie du produit",
-                            type: 'select',
-                            required: true,
-                            options: categorieList.map(value => ({
-                                label: value.nom,
-                                value: value.id
-                            })),
-                            xs: 12,
-                        },
-                        {
-                            name: 'images[]',
-                            label: "Images du produit",
-                            type: 'file',
-                            required: true,
-                            multiple: true,
-                            xs: 12,
-                        },
-                    ]}
+                    fields={fields}
                     treatmentFonction={onSubmit as any}
                     submitButtonText="Valider"
                     cancelButtonText="Annuler"
