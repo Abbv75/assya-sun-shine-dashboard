@@ -8,7 +8,7 @@ export const removeParticipants = async (idTournoi: string, idPartie: string, li
             { participants: liste }
         );
 
-        return data.data as PARTIE_T;
+        return data as PARTIE_T;
     } catch (error: any) {
         return false;
     }

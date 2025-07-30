@@ -13,7 +13,7 @@ export const update = async (id: string, tournoi: {
     try {
         const { data } = await axiosInstance.put(`/tournoi/${id}`, tournoi);
 
-        return data.data as TOURNOI_T;
+        return data as TOURNOI_T;
     } catch (error: any) {
         return false;
     }

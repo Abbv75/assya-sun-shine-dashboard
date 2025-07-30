@@ -5,7 +5,7 @@ export default async () => {
     try {
         const { data } = await axiosInstance.get('/roles');
 
-        return data.data as ROLE_T[];
+        return data as ROLE_T[];
     } catch (error: any) {
         return false;
     }

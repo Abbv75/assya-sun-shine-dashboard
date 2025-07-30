@@ -15,7 +15,7 @@ export const update = async (id: string, user: {
     try {
         const { data } = await axiosInstance.put(`/users/${id}`, user);
 
-        return data.data as USER_T;
+        return data as USER_T;
     } catch (error: any) {
         return false;
     }

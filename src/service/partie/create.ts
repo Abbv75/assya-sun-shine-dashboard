@@ -10,7 +10,7 @@ export const create = async (id_tournoi: string, partie: {
     try {
         const { data } = await axiosInstance.post(`/tournoi/${id_tournoi}/partie`, partie);
 
-        return data.data as TOURNOI_T;
+        return data as TOURNOI_T;
     } catch (error: any) {
         return false;
     }

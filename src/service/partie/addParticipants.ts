@@ -8,7 +8,7 @@ export const addParticipants = async (idTournoi: string, idPartie: string, liste
             { participants: liste }
         );
 
-        return data.data as PARTIE_T;
+        return data as PARTIE_T;
     } catch (error: any) {
         return false;
     }

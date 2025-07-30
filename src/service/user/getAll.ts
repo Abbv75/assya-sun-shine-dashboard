@@ -5,7 +5,7 @@ export const getAll = async () => {
     try {
         const { data } = await axiosInstance.get('/users');
 
-        return data.data as USER_T[];
+        return data as USER_T[];
     } catch (error: any) {
         return false;
     }

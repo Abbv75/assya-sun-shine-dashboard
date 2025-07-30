@@ -15,7 +15,7 @@ export const create = async (user: {
     try {
         const { data } = await axiosInstance.post(`/users`, user);
 
-        return data.data as USER_T;
+        return data as USER_T;
     } catch (error: any) {
         return false;
     }
