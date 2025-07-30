@@ -1,22 +1,21 @@
 import { Divider, Stack, Typography } from '@mui/joy'
 import { useCallback, useEffect, useState } from 'react'
-import { CATEGORIE_T, LOADING_STATE_T } from '../../types'
-import { getAllCategorie } from '../../service/categorie'
-import ListZone from '../../features/Categorie/ListZone'
-import EditZone from '../../features/Categorie/EditZone'
+import { LOADING_STATE_T, PRODUIT_T } from '../../types'
 import { ProduitContext } from '../../providers/ProduitContext'
+import { getAllProduit } from '../../service/produit'
+import ListZone from '../../features/Produit/ListZone'
 
 const Produit = () => {
-    const [produitList, setproduitList] = useState([] as CATEGORIE_T[]);
+    const [produitList, setproduitList] = useState([] as PRODUIT_T[]);
     const [loadingState, setloadingState] = useState("En cours de chargement." as LOADING_STATE_T);
-    const [categorieToEdit, setcategorieToEdit] = useState(undefined as CATEGORIE_T | undefined);
+    const [produitToEdit, setproduitToEdit] = useState(undefined as PRODUIT_T | undefined);
 
-    const loadCategorie = useCallback(async () => {
+    const loadproduit = useCallback(async () => {
         try {
             setloadingState("En cours de chargement.");
-            const res = await getAllCategorie();
+            const res = await getAllProduit();
             if (!res) return;
-            setcategorieList(res);
+            setproduitList(res);
         } catch (error) {
             console.error("Error loading users:", error);
         } finally {
@@ -26,28 +25,27 @@ const Produit = () => {
 
 
     useEffect(() => {
-        loadCategorie();
+        loadproduit();
     }, []);
 
 
     return (
         <ProduitContext.Provider value={{
             produitList, setproduitList,
-            loadCategorie,
+            loadproduit,
             loadingState,
-            categorieToEdit, setcategorieToEdit,
+            produitToEdit, setproduitToEdit,
         }}>
 
             <Stack>
-                <Typography level='h2'>Gestion des categories de produit</Typography>
+                <Typography level='h2'>Gestion des produits de produit</Typography>
 
                 <Divider sx={{ width: 100 }} />
 
                 <Stack mt={3} gap={1} >
                     <Stack direction={"row"} gap={1} flexWrap={'wrap'} justifyContent={"space-between"} alignItems={"center"} >
 
-                        <EditZone />
-                        {/* <EditUserPassword /> */}
+                        {/* <EditZone /> */}
                     </Stack>
 
                     <ListZone />
