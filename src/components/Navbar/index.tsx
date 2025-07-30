@@ -57,7 +57,6 @@ const Navbar = () => {
                 <FontAwesomeIcon icon={faLock} />
             </Button>
         </Card>
-
     )
 }
 
