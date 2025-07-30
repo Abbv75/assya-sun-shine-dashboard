@@ -3,6 +3,8 @@ import User from "../pages/User";
 import Tournoi from "../pages/Tournoi";
 import SelectedTournoi from "../pages/SelectedTournoi";
 import SelectedPartie from "../pages/SelectedPartie";
+import Categorie from "../pages/Categorie";
+import { faStackOverflow } from "@fortawesome/free-brands-svg-icons";
 
 export default [
     {
@@ -10,6 +12,13 @@ export default [
         href: '/user',
         icon: faUsersGear,
         component: User,
+        isPublic: false
+    },
+    {
+        label: 'Gestion des categories',
+        href: '/categorie',
+        icon: faStackOverflow,
+        component: Categorie,
         isPublic: false
     },
     {

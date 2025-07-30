@@ -13,6 +13,12 @@ export type ROLE_T = {
   description: string;
 };
 
+export interface CATEGORIE_T {
+  id: string;
+  nom: string;
+  description: string;
+};
+
 export type CONTACT_T = {
   id: string;
   telephone: string;
