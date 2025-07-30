@@ -1,6 +1,6 @@
 import { Divider, Stack, Typography } from '@mui/joy'
 import { useCallback, useEffect, useState } from 'react'
-import { CATEGORIE_T, LOADING_STATE_T, ROLE_T, USER_T } from '../../types'
+import { CATEGORIE_T, LOADING_STATE_T } from '../../types'
 import { getAllCategorie } from '../../service/categorie'
 import { CategorieContext } from '../../providers/CategorieContext'
 import ListZone from '../../features/Categorie/ListZone'
