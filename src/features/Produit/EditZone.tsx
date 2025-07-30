@@ -127,6 +127,14 @@ const EditZone = () => {
                             })),
                             xs: 12,
                         },
+                        {
+                            name: 'images[]',
+                            label: "Images du produit",
+                            type: 'file',
+                            required: true,
+                            multiple: true,
+                            xs: 12,
+                        },
                     ]}
                     treatmentFonction={onSubmit as any}
                     submitButtonText="Valider"

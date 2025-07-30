@@ -9,7 +9,7 @@ import { faKey } from '@fortawesome/free-solid-svg-icons';
 const EditUserPassword = () => {
     const { userPasswordToEdit, setuserPasswordToEdit } = useContext(UserContext);
 
-    const handleChangePassword = async (formData: { password: string }) => {
+    const handleChangePassword = async (formData: any) => {
         if (!userPasswordToEdit) { return false; }
 
         try {
