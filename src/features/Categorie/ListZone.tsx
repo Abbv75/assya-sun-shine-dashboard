@@ -4,7 +4,6 @@ import { ButtonGroup, IconButton, LinearProgress, Tooltip } from '@mui/joy';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFeather, faTrashArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { toast } from 'react-toastify';
-import { deleteUser } from '../../service/user';
 import { CategorieContext } from '../../providers/CategorieContext';
 import { deleteCategorie } from '../../service/categorie';
 
