@@ -1,11 +1,12 @@
 import { useContext } from 'react';
 import CustomTable from '../../components/CustomTable';
-import { ButtonGroup, IconButton, LinearProgress, Stack, Tooltip } from '@mui/joy';
+import { Avatar, AvatarGroup, ButtonGroup, IconButton, LinearProgress, Stack, Tooltip } from '@mui/joy';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFeather, faTrashArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { faFeather, faPhotoVideo, faTrashArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { toast } from 'react-toastify';
 import { deleteProduit } from '../../service/produit';
 import { ProduitContext } from '../../providers/ProduitContext';
+import { IMAGE_URL } from '../../constant';
 
 const ListZone = () => {
     const { produitList, loadingState, setproduitList, setproduitToEdit } = useContext(ProduitContext);
@@ -34,8 +35,19 @@ const ListZone = () => {
 
     return (
         <CustomTable
-            theadCells={["Nom", "Prix D'achat", "Prix detaillant", "Prix d'engros", "Quantite", "Action",]}
+            theadCells={["", "Nom", "Prix D'achat", "Prix detaillant", "Prix d'engros", "Quantite", "Action",]}
             data={produitList.map((value) => ([
+                value.images?.length ? (
+                    <AvatarGroup size='sm' >
+                        {value.images.map((image, index) => (
+                            <>
+                                {index < 2 && <Avatar key={index} src={`${IMAGE_URL}/${image.file}`} />}
+                                {index == 2 && <Avatar key={index} children={<FontAwesomeIcon icon={faPhotoVideo} />} />}
+                            </>
+
+                        ))}
+                    </AvatarGroup>
+                ) : '',
                 value.nom,
                 value.prixAchat,
                 value.prixVenteDetails,
