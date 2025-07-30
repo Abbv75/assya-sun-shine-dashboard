@@ -1,7 +1,7 @@
 import { axiosInstance } from "../../constant";
 import { PRODUIT_T } from "../../types";
 
-export const update = async (id: string, params: {
+export const update = async (id: number, params: {
     nom?: string,
     description?: string
 }) => {
