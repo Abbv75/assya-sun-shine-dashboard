@@ -1,7 +1,8 @@
-import { faLock, faUsersGear } from "@fortawesome/free-solid-svg-icons";
+import { faLock, faShoppingBag, faUsersGear } from "@fortawesome/free-solid-svg-icons";
 import User from "../pages/User";
 import Categorie from "../pages/Categorie";
 import { faStackOverflow } from "@fortawesome/free-brands-svg-icons";
+import Produit from "../pages/Produit";
 
 export default [
     {
@@ -16,6 +17,13 @@ export default [
         href: '/categorie',
         icon: faStackOverflow,
         component: Categorie,
+        isPublic: false
+    },
+    {
+        label: 'Gestion des produit',
+        href: '/produit',
+        icon: faShoppingBag,
+        component: Produit,
         isPublic: false
     },
     {

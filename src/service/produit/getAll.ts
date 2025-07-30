@@ -1,11 +1,11 @@
 import { axiosInstance } from "../../constant";
-import { TOURNOI_T } from "../../types";
+import { PRODUIT_T } from "../../types";
 
 export const getAll = async () => {
     try {
-        const { data } = await axiosInstance.get('/tournoi');
+        const { data } = await axiosInstance.get('/produits');
 
-        return data as TOURNOI_T[];
+        return data as PRODUIT_T[];
     } catch (error: any) {
         return false;
     }

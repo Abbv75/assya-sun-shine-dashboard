@@ -40,6 +40,24 @@ export type USER_T = {
   contact?: CONTACT_T;
 };
 
+export interface IMAGE_T {
+  id: number,
+  file: string,
+  id_produit: number
+}
+
+export interface PRODUIT_T {
+  id: number,
+  nom: string,
+  prixAchat: number,
+  prixVenteDetails: number,
+  prixVenteEngros: number,
+  quantite: number,
+  id_categorie?: number,
+  categorie: CATEGORIE_T,
+  images?: IMAGE_T[]
+};
+
 export interface STATUS_T {
   nom: string;
   id: string;
