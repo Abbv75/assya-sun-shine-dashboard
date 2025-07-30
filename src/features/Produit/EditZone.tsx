@@ -137,6 +137,7 @@ const EditZone = () => {
                 <Divider />
 
                 <GenericForm<PRODUIT_T>
+                    //@ts-ignore
                     fields={fields}
                     treatmentFonction={onSubmit as any}
                     submitButtonText="Valider"
