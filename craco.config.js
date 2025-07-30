@@ -4,7 +4,7 @@ module.exports = {
   webpack: {
     configure: {
       output: {
-        path: path.resolve(__dirname, 'maliProcessDashboard'),  // Replace with your target folder
+        path: path.resolve(__dirname, 'assyaSunShine'),  // Replace with your target folder
       },
     },
   },
