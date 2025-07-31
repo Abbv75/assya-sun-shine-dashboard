@@ -1,36 +1,19 @@
 import { Divider, Stack, Typography } from '@mui/joy'
 import { useCallback, useEffect, useState } from 'react'
-import { CATEGORIE_T, LOADING_STATE_T, PRODUIT_T } from '../../types'
-import { ProduitContext } from '../../providers/ProduitContext'
-import { getAllProduit } from '../../service/produit'
-import { getAllCategorie } from '../../service/categorie'
+import { LOADING_STATE_T, PRODUIT_T, VENTE_T } from '../../types'
 import { VenteContext } from '../../providers/VenteContext'
+import { getAllVente } from '../../service/vente'
+import ListZone from '../../features/Vente/ListZone'
 
 const Vente = () => {
-    const [categorieList, setcategorieList] = useState([] as CATEGORIE_T[]);
-    const [venteList, setventeList] = useState([] as PRODUIT_T[]);
+    const [venteList, setventeList] = useState([] as VENTE_T[]);
     const [loadingState, setloadingState] = useState("En cours de chargement." as LOADING_STATE_T);
     const [produitToEdit, setproduitToEdit] = useState(undefined as PRODUIT_T | undefined);
 
-    // galerie zone info
-    const [produitGalerie, setproduitGalerie] = useState(undefined as PRODUIT_T | undefined);
-
-    const loadCategorie = useCallback(async () => {
-        try {
-            const res = await getAllCategorie();
-            if (!res) return;
-            setcategorieList(res);
-        } catch (error) {
-            console.error("Error loading users:", error);
-        } finally {
-            setloadingState(null);
-        }
-    }, []);
-
-    const loadproduit = useCallback(async () => {
+    const loadvente = useCallback(async () => {
         try {
             setloadingState("En cours de chargement.");
-            const res = await getAllProduit();
+            const res = await getAllVente();
             if (!res) return;
             setventeList(res);
         } catch (error) {
@@ -40,16 +23,15 @@ const Vente = () => {
         }
     }, []);
 
-
     useEffect(() => {
-        loadproduit();
-        loadCategorie();
+        loadvente();
     }, []);
 
 
     return (
         <VenteContext.Provider value={{
-
+            venteList, setventeList,
+            loadingState
         }}>
 
             <Stack>
@@ -58,7 +40,7 @@ const Vente = () => {
                 <Divider sx={{ width: 100 }} />
 
                 <Stack mt={3} gap={1} >
-
+                    <ListZone />
                 </Stack>
             </Stack>
         </VenteContext.Provider>

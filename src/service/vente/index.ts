@@ -1,0 +1,4 @@
+export { getAll as getAllVente } from "./getAll"
+export { deleteVente as deleteVente } from "./delete"
+export { create as createVente } from "./create"
+export { update as updateVente } from "./update"

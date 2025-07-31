@@ -70,6 +70,8 @@ export interface VENTE_T {
   id_client: number,
   id_produit: number,
   client: CLIENT_T,
-  produits: PRODUIT_T[]
+  produits: PRODUIT_T[],
+  created_at: string,
+  updated_at: string
 };
 
