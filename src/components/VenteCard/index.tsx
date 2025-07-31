@@ -4,6 +4,7 @@ import { faAngleRight, faChessPawn, faMoneyBill, faTrashArrowUp } from '@fortawe
 import { blue } from '@mui/material/colors';
 import { VENTE_T } from '../../types';
 import { memo } from 'react';
+import { Link } from 'react-router-dom';
 
 const VenteCard = memo(({ vente, handleDelete }: { vente: VENTE_T, handleDelete: (id: number) => unknown }) => {
     return (
@@ -38,6 +39,8 @@ const VenteCard = memo(({ vente, handleDelete }: { vente: VENTE_T, handleDelete:
                     endDecorator={<FontAwesomeIcon icon={faAngleRight} />}
                     fullWidth
                     color='primary'
+                    component={Link}
+                    to={`/selectedVente/${vente.id}`}
                 >Plus d'informations</Button>
                 <Button
                     endDecorator={<FontAwesomeIcon icon={faTrashArrowUp} />}

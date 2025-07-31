@@ -5,7 +5,7 @@ import { VenteContext } from '../../providers/VenteContext'
 import { getAllVente } from '../../service/vente'
 import ListZone from '../../features/Vente/ListZone'
 
-const Vente = () => {
+const SelectedVente = () => {
     const [venteList, setventeList] = useState([] as VENTE_T[]);
     const [loadingState, setloadingState] = useState("En cours de chargement." as LOADING_STATE_T);
 
@@ -46,4 +46,4 @@ const Vente = () => {
     )
 }
 
-export default Vente
+export default SelectedVente

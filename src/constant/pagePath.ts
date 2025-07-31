@@ -4,6 +4,7 @@ import Categorie from "../pages/Categorie";
 import { faStackOverflow } from "@fortawesome/free-brands-svg-icons";
 import Produit from "../pages/Produit";
 import Vente from "../pages/Vente";
+import SelectedVente from "../pages/Vente/SelectedVente";
 
 export default [
     {
@@ -26,6 +27,14 @@ export default [
         icon: faChessPawn,
         component: Produit,
         isPublic: false
+    },
+    {
+        label: 'Selected Vente',
+        href: '/selectedVente/:idVente',
+        icon: faShoppingBag,
+        component: SelectedVente,
+        isPublic: false,
+        toHide: true
     },
     {
         label: 'Gestion des ventes',
