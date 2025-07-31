@@ -6,12 +6,16 @@ import { getAllProduit } from '../../service/produit'
 import ListZone from '../../features/Produit/ListZone'
 import { getAllCategorie } from '../../service/categorie'
 import EditZone from '../../features/Produit/EditZone'
+import GalerieZone from '../../features/Produit/GalerieZone'
 
 const Produit = () => {
     const [categorieList, setcategorieList] = useState([] as CATEGORIE_T[]);
     const [produitList, setproduitList] = useState([] as PRODUIT_T[]);
     const [loadingState, setloadingState] = useState("En cours de chargement." as LOADING_STATE_T);
     const [produitToEdit, setproduitToEdit] = useState(undefined as PRODUIT_T | undefined);
+
+    // galerie zone info
+    const [produitGalerie, setproduitGalerie] = useState(undefined as PRODUIT_T | undefined);
 
     const loadCategorie = useCallback(async () => {
         try {
@@ -51,7 +55,8 @@ const Produit = () => {
             loadproduit,
             loadingState,
             produitToEdit, setproduitToEdit,
-            categorieList
+            categorieList,
+            produitGalerie, setproduitGalerie
         }}>
 
             <Stack>
@@ -66,6 +71,8 @@ const Produit = () => {
                     </Stack>
 
                     <ListZone />
+
+                    <GalerieZone />
                 </Stack>
             </Stack>
         </ProduitContext.Provider>

@@ -1,4 +1,6 @@
 export { getAll as getAllProduit } from "./getAll"
 export { deleteProduit as deleteProduit } from "./delete"
+export { deleteImage as deleteProduitImage } from "./deleteImage"
+export { addImage as addProduitImage } from "./addImage"
 export { create as createProduit } from "./create"
 export { update as updateProduit } from "./update"

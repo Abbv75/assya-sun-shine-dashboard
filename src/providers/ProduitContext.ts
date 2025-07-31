@@ -7,4 +7,5 @@ export const ProduitContext = createContext({} as {
     loadingState: LOADING_STATE_T,
     produitToEdit?: PRODUIT_T, setproduitToEdit: USE_STATE_T<PRODUIT_T | undefined>,
     categorieList: CATEGORIE_T[],
+    produitGalerie?: PRODUIT_T, setproduitGalerie: USE_STATE_T<PRODUIT_T | undefined>
 });
