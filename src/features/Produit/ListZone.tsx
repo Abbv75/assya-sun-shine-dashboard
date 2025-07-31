@@ -37,20 +37,20 @@ const ListZone = () => {
         <CustomTable
             theadCells={["", "Nom", "Prix D'achat", "Prix detaillant", "Prix d'engros", "Quantite", "Action",]}
             data={produitList.map((value) => ([
-                value.images?.length ? (
-                    <AvatarGroup
-                        size='sm'
-                        sx={{ cursor: 'pointer' }}
-                        onClick={() => setproduitGalerie(value)}
-                    >
-                        {value.images.map((image, index) => (
-                            <>
-                                {index < 2 && <Avatar key={index} src={`${IMAGE_URL}/${image.file}`} />}
-                                {index == 2 && <Avatar key={index} children={<FontAwesomeIcon icon={faPhotoVideo} />} />}
-                            </>
-                        ))}
-                    </AvatarGroup>
-                ) : '',
+                <AvatarGroup
+                    size='sm'
+                    sx={{ cursor: 'pointer' }}
+                    onClick={() => setproduitGalerie(value)}
+                >
+                    {value.images
+                        ?.slice(0, 2)
+                        ?.map((image, index) => (
+                            <Avatar key={index} src={`${IMAGE_URL}/${image.file}`} />
+                        ))
+                    }
+                    <Avatar children={<FontAwesomeIcon icon={faPhotoVideo} />} />
+                </AvatarGroup>
+                ,
                 value.nom,
                 value.prixAchat,
                 value.prixVenteDetails,
