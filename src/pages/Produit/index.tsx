@@ -60,7 +60,7 @@ const Produit = () => {
         }}>
 
             <Stack>
-                <Typography level='h2'>Gestion des produits de produit</Typography>
+                <Typography level='h2'>Gestion des produits</Typography>
 
                 <Divider sx={{ width: 100 }} />
 
