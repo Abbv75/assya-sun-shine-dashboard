@@ -1,8 +1,9 @@
-import { faLock, faShoppingBag, faUsersGear } from "@fortawesome/free-solid-svg-icons";
+import { faChessPawn, faLock, faShoppingBag, faUsersGear } from "@fortawesome/free-solid-svg-icons";
 import User from "../pages/User";
 import Categorie from "../pages/Categorie";
 import { faStackOverflow } from "@fortawesome/free-brands-svg-icons";
 import Produit from "../pages/Produit";
+import Vente from "../pages/Vente";
 
 export default [
     {
@@ -20,10 +21,17 @@ export default [
         isPublic: false
     },
     {
-        label: 'Gestion des produit',
+        label: 'Gestion des produits',
         href: '/produit',
-        icon: faShoppingBag,
+        icon: faChessPawn,
         component: Produit,
+        isPublic: false
+    },
+    {
+        label: 'Gestion des ventes',
+        href: '/vente',
+        icon: faShoppingBag,
+        component: Vente,
         isPublic: false
     },
     {

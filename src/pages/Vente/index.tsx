@@ -3,14 +3,12 @@ import { useCallback, useEffect, useState } from 'react'
 import { CATEGORIE_T, LOADING_STATE_T, PRODUIT_T } from '../../types'
 import { ProduitContext } from '../../providers/ProduitContext'
 import { getAllProduit } from '../../service/produit'
-import ListZone from '../../features/Produit/ListZone'
 import { getAllCategorie } from '../../service/categorie'
-import EditZone from '../../features/Produit/EditZone'
-import GalerieZone from '../../features/Produit/GalerieZone'
+import { VenteContext } from '../../providers/VenteContext'
 
-const Produit = () => {
+const Vente = () => {
     const [categorieList, setcategorieList] = useState([] as CATEGORIE_T[]);
-    const [produitList, setproduitList] = useState([] as PRODUIT_T[]);
+    const [venteList, setventeList] = useState([] as PRODUIT_T[]);
     const [loadingState, setloadingState] = useState("En cours de chargement." as LOADING_STATE_T);
     const [produitToEdit, setproduitToEdit] = useState(undefined as PRODUIT_T | undefined);
 
@@ -34,7 +32,7 @@ const Produit = () => {
             setloadingState("En cours de chargement.");
             const res = await getAllProduit();
             if (!res) return;
-            setproduitList(res);
+            setventeList(res);
         } catch (error) {
             console.error("Error loading users:", error);
         } finally {
@@ -50,32 +48,21 @@ const Produit = () => {
 
 
     return (
-        <ProduitContext.Provider value={{
-            produitList, setproduitList,
-            loadproduit,
-            loadingState,
-            produitToEdit, setproduitToEdit,
-            categorieList,
-            produitGalerie, setproduitGalerie
+        <VenteContext.Provider value={{
+
         }}>
 
             <Stack>
-                <Typography level='h2'>Gestion des produits</Typography>
+                <Typography level='h2'>Gestion des ventes</Typography>
 
                 <Divider sx={{ width: 100 }} />
 
                 <Stack mt={3} gap={1} >
-                    <Stack direction={"row"} gap={1} flexWrap={'wrap'} justifyContent={"space-between"} alignItems={"center"} >
-                        <EditZone />
-                    </Stack>
 
-                    <ListZone />
-
-                    <GalerieZone />
                 </Stack>
             </Stack>
-        </ProduitContext.Provider>
+        </VenteContext.Provider>
     )
 }
 
-export default Produit
+export default Vente
