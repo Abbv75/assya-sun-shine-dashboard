@@ -1,13 +1,12 @@
 import { Breadcrumbs, Divider, Stack, Tab, tabClasses, TabList, TabPanel, Tabs, Typography } from '@mui/joy'
 import { useCallback, useEffect, useState } from 'react'
 import { LOADING_STATE_T, VENTE_T } from '../../types'
-import { VenteContext } from '../../providers/VenteContext'
-import { getAllVente, getVente } from '../../service/vente'
+import { getVente } from '../../service/vente'
 import { useParams } from 'react-router-dom'
-import InfoZone from '../../features/SelectedVente/InfoZone'
 import ListProduitZone from '../../features/SelectedVente/ListProduitZone'
 import { SelectedVenteContext } from '../../providers/SelectedVenteContext'
 import { Skeleton } from '@mui/material'
+import InfoZone from '../../features/SelectedVente/InfoZone'
 
 const SelectedVente = () => {
     const { idVente } = useParams();
@@ -56,7 +55,7 @@ const SelectedVente = () => {
 
                 <Divider sx={{ width: 100 }} />
 
-                <Tabs defaultValue={1} sx={{ bgcolor: 'transparent', mt: 5 }}>
+                <Tabs defaultValue={0} sx={{ bgcolor: 'transparent', mt: 5 }}>
                     <TabList
                         disableUnderline
                         sx={{

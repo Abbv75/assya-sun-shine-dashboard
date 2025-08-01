@@ -1,11 +1,11 @@
-import React, { useContext } from 'react'
+import React, { memo, useContext } from 'react'
 import CustomTable from '../../components/CustomTable'
 import { SelectedVenteContext } from '../../providers/SelectedVenteContext'
 import { Avatar, AvatarGroup, Typography } from '@mui/joy';
 import { IMAGE_URL } from '../../constant';
 import { numberInXOF } from '../../helpers/numberInXOF';
 
-const ListProduitZone = () => {
+const ListProduitZone = memo(() => {
   const { vente } = useContext(SelectedVenteContext);
 
   if (!vente || !vente?.produits) {
@@ -38,6 +38,6 @@ const ListProduitZone = () => {
 
     />
   )
-}
+})
 
 export default ListProduitZone
