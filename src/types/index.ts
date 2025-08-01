@@ -61,7 +61,13 @@ export interface PRODUIT_T {
   quantite: number,
   id_categorie?: number,
   categorie: CATEGORIE_T,
-  images?: IMAGE_T[]
+  images?: IMAGE_T[],
+  pivot?: {
+    id_produit: number,
+    id_vente: number,
+    quantite: number,
+    montant: number,
+  }
 };
 
 export interface VENTE_T {
