@@ -33,7 +33,7 @@ const ListZone = () => {
     return (
         <Grid container spacing={4} mx={0} >
             {venteList.map((vente, index) => (
-                <Grid xs={12} sm={6} md={4} lg={3} key={index} >
+                <Grid xs={12} md={4} key={index} >
                     <VenteCard vente={vente} handleDelete={handleDelete} />
                 </Grid>
             ))}
