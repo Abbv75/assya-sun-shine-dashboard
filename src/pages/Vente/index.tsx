@@ -1,4 +1,4 @@
-import { Divider, Stack, Typography } from '@mui/joy'
+import { Button, Divider, Stack, Typography } from '@mui/joy'
 import { useCallback, useEffect, useState } from 'react'
 import { LOADING_STATE_T, PRODUIT_T, VENTE_T } from '../../types'
 import { VenteContext } from '../../providers/VenteContext'
@@ -38,7 +38,9 @@ const Vente = () => {
 
                 <Divider sx={{ width: 100 }} />
 
-                <Stack mt={3} gap={1} >
+                <Stack mt={3} gap={3} >
+                    <Button>Ajouter une vente</Button>
+
                     <ListZone />
                 </Stack>
             </Stack>
