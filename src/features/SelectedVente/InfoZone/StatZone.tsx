@@ -4,23 +4,25 @@ import { SelectedVenteContext } from '../../../providers/SelectedVenteContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationPin, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import { numberInXOF } from '../../../helpers/numberInXOF';
 
-const ClientZone = memo(() => {
+const StatZone = memo(() => {
     const { vente } = useContext(SelectedVenteContext);
-    
-    if (!vente || !vente.client) return null;
+
+    if (!vente) return null;
 
     return (
         <Card>
-            <Typography level='title-lg' >{vente?.client.nomComplet}</Typography>
+            <Typography level='title-lg' >Numero de recu: #{vente.id}</Typography>
             <Divider />
 
-            <Typography
-                startDecorator={<FontAwesomeIcon icon={faPhone} />}
-                children={vente?.client.contact?.telephone}
-                component={Link}
-                to={`tel:${vente?.client.contact?.telephone}`}
-            />
+            <Typography>
+                Nombre de produit : {vente.produits.reduce((sum, produit) => sum + produit.quantite, 0).toLocaleString()}
+            </Typography>
+            
+            <Typography>
+                Montant total : {numberInXOF(vente.montant)}
+            </Typography>
 
             {vente?.client.contact?.adresse && (
                 <Typography
@@ -50,4 +52,4 @@ const ClientZone = memo(() => {
     )
 })
 
-export default ClientZone
+export default StatZone
